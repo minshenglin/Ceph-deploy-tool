@@ -1,0 +1,8 @@
+---
+  - hosts: deploy_server
+    remote_user: ubuntu
+    roles:
+
+  - hosts: all
+    remote_user: Ubuntu
+    roles:
