@@ -1,8 +1,10 @@
 ---
-  - hosts: deploy_server
-    remote_user: ubuntu
+  - hosts: deploy
+    sudo: yes
     roles:
+      - deploy-server
 
-  - hosts: all
-    remote_user: Ubuntu
+  - hosts: ceph-node
+    sudo: yes
     roles:
+      - ceph-node

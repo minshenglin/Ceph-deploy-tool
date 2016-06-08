@@ -1,1 +1,3 @@
-[deploy_server]
+[deploy]
+
+[ceph-node]

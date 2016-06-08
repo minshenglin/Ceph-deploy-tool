@@ -22,7 +22,21 @@ Including the feature below:
 Step
 ----
 
-1. Install Ansible
+1. Install Ansible(2.0.1)
 ```
 sudo apt-get install ansible -y
+```
+
+2. Set up the information of host
+```
+vim ansible/hosts
+# [deploy]
+# [ceph-node]
+...
+...
+```
+
+3. Launch the command to run the playbook
+```
+ansible-playbook site.yml -i hosts --ask-pass --ask-sudo-pass
 ```
