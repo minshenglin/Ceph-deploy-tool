@@ -1,0 +1,1 @@
+ntp_server_ip: "{{ lookup('file', './tmp/ntp_server_ip') }}"  # change IP if there already have ntp server

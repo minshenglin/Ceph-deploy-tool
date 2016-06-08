@@ -1,2 +1,9 @@
 ---
+- include: ./install/online_install.yml
+  when: "install_mode == 'online'"
+
 - include: ./initialize.yml
+
+- include: ./firewall.yml
+
+- include: ./ntp.yml
