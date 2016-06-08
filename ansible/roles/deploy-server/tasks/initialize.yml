@@ -1,0 +1,10 @@
+  - name: create user
+    user: name={{username}} password={{password}} group=sudo generate_ssh_key=yes
+
+  - name: keep the ssh key of user
+    shell: cat /home/{{username}}/.ssh/id_rsa.pub
+    register: deploy_user_ssh_key
+    ignore_errors: True
+
+  - name: save the ssh key of user
+    local_action: copy content={{ deploy_user_ssh_key.stdout }} dest=./tmp/deploy_user_ssh_key

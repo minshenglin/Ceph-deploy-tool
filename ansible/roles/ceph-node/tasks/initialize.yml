@@ -1,0 +1,11 @@
+  - name: create user
+    user: name={{username}} password={{password}} group=sudo
+
+  - name: set passwordless sudoer
+    lineinfile: "dest=/etc/sudoers regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
+
+  - name: disable requiretty
+    lineinfile: dest=/etc/sudoers line='Defaults:{{username}} !requiretty'
+
+  - name: deploy ssh public key
+    authorized_key: user={{username}} key="{{ lookup('file', './tmp/deploy_user_ssh_key') }}"
