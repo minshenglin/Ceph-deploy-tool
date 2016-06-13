@@ -1,0 +1,2 @@
+- name: stop the service of firewall
+  service: name=ufw enabled=no state=stopped

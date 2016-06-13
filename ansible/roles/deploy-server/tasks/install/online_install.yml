@@ -1,0 +1,2 @@
+- name: install ceph-deploy
+  apt: name=ceph-deploy state=present
