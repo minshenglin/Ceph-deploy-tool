@@ -1,0 +1,11 @@
+- name: check ceph-deploy installed or not
+  command: dpkg -l ceph-deploy
+  register: deploy_check
+  failed_when: deploy_check.rc > 1
+
+- name: copy package of ceph-dpeloy to node
+  copy: src=../packages/ceph-deploy/ dest=/tmp/packages/ceph-deploy/
+  when: "deploy_check.rc == 1"
+
+- name: install ceph-deploy
+  command: dpkg -i -R /tmp/packages/ceph-deploy/

@@ -1,6 +1,9 @@
 - include: ./install/online_install.yml
   when: "install_mode == 'online'"
 
+- include: ./install/offline_install.yml
+  when: "install_mode == 'offline'"
+
 - name: set up ntp server
   template: src=ntp.conf.j2 dest=/etc/ntp.conf
 
