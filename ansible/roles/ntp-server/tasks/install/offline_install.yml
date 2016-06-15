@@ -1,0 +1,11 @@
+- name: check ntp installed or not
+  command: dpkg -l ntp
+  register: ntp_check
+  failed_when: ntp_check.rc > 1
+
+- name: copy packages of ntp to node
+  copy: src=../packages/ntp/ dest=/tmp/packages/ntp/
+  when: "ntp_check.rc == 1"
+
+- name: install ntp
+  command: dpkg -i -R /tmp/packages/ntp/
