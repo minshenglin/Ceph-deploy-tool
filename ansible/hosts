@@ -1,5 +1,15 @@
+[rados-node:children]
+mon
+osd
+
+[mon]
+
+[osd]
+
 [deploy]
 
-[ceph-node]
-
 [ntp-server]
+
+[radosgw]
+
+[client]

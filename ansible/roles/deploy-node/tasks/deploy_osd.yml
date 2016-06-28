@@ -1,0 +1,15 @@
+- name: get command of deploying osd
+  gen_command_of_deploying_osd:
+    host: "{{ item.host }}"
+    drives: "{{ item.drives }}"
+    journal_drives: "{{ item.journal_drives }}"
+    num_of_osd_on_journal: "{{ num_of_osd_on_journal }}"
+  register: command_list
+  with_items:
+    - "{{ drives_list }}"
+
+- name: deploy OSD
+  shell: cd /home/{{ username }}/ceph; {{ item.1 }}
+  with_subelements:
+    - "{{ command_list }}"
+    - meta.result

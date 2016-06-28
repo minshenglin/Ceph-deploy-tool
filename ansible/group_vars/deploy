@@ -1,0 +1,20 @@
+num_of_osd_on_journal: 2
+
+#########
+# example
+# drives_list: [
+#   {
+#     host: 'osd-node0',
+#     drives: [
+#       '/dev/sda',
+#       '/dev/sdb',
+#     ],
+#     journal_drives: [
+#       '/dev/sdg',
+#     ],
+#   },
+# ]
+
+drives_list: [
+  
+]
