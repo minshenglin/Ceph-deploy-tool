@@ -1,4 +1,6 @@
 ---
+  # initialize (setup config and install package)
+  # need sudo privilege
   - hosts: all
     sudo: yes
     roles:
@@ -12,9 +14,14 @@
   - hosts: deploy
     sudo: yes
     roles:
-      - deploy-server
+      - deploy-node-init
 
-  - hosts: ceph-node
+  - hosts: rados-node
     sudo: yes
     roles:
-      - ceph-node
+      - rados-node-init
+
+  # Start deploying Ceph cluster
+  - hosts: deploy
+    roles:
+      - deploy-node

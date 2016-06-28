@@ -18,6 +18,8 @@
 
 - name: install ntp
   command: dpkg -i -R /tmp/packages/ntp/
+  when: "ntp_check.rc == 1"
 
 - name: install ceph
   command: dpkg -i -R /tmp/packages/ceph/
+  when: "ceph_check.rc == 1"

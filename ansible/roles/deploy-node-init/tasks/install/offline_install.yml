@@ -9,3 +9,4 @@
 
 - name: install ceph-deploy
   command: dpkg -i -R /tmp/packages/ceph-deploy/
+  when: "deploy_check.rc == 1"

@@ -9,3 +9,4 @@
 
 - name: install ntp
   command: dpkg -i -R /tmp/packages/ntp/
+  when: "ntp_check.rc == 1"
