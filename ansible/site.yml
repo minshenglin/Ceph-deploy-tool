@@ -1,27 +1,10 @@
 ---
   # initialize (setup config and install package)
   # need sudo privilege
-  - hosts: all
-    sudo: yes
-    roles:
-      - common
-
-  - hosts: ntp-server
-    sudo: yes
-    roles:
-      - ntp-server
-
-  - hosts: deploy
-    sudo: yes
-    roles:
-      - deploy-node-init
-
-  - hosts: rados-node
-    sudo: yes
-    roles:
-      - rados-node-init
+  - include: sync_hosts_info.yml
+  - include: setup_ntp_server.yml
+  - include: initial_nodes.yml
 
   # Start deploying Ceph cluster
-  - hosts: deploy
-    roles:
-      - deploy-node
+  - include: deploy_cluster.yml
+  - include: setup_calamari.yml

@@ -1,0 +1,14 @@
+- name: create user
+  user: name={{ username }} password={{ password }} group={{ username }} createhome=yes update_password=on_create
+
+- name: set passwordless sudoer
+  lineinfile: "dest=/etc/sudoers regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
+
+- name: disable requiretty
+  lineinfile: dest=/etc/sudoers line='Defaults:{{ username }} !requiretty'
+
+- name: set deploy ssh public key
+  authorized_key: user={{ username }} key="{{ lookup('file', './tmp/deploy_user_ssh_key') }}"
+
+- name: stop the service of firewall
+  service: name=ufw enabled=no state=stopped

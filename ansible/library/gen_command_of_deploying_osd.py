@@ -34,9 +34,9 @@ def main():
             journal_drives_count += 1
         count += 1
         if journal_drives_count > len(journal_drives) - 1:
-            command_list.append('ceph-deploy osd create --zap-disk {}:{}'.format(host, drive))
+            command_list.append('ceph-deploy --overwrite-conf osd create --zap-disk {}:{}'.format(host, drive))
         else:
-            command_list.append('ceph-deploy osd create --zap-disk {}:{}:{}'.format(host, drive, journal_drives[journal_drives_count]))
+            command_list.append('ceph-deploy --overwrite-conf osd create --zap-disk {}:{}:{}'.format(host, drive, journal_drives[journal_drives_count]))
 
     response = {
          "result": command_list,

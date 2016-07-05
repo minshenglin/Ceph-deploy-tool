@@ -1,4 +1,7 @@
+install_mode: none  # online/offline/none
+
 username: ubuntu
 password: ubuntu
 
-install_mode: none  # online/offline/none
+# change IP if there already have ntp server
+ntp_server_ip: "{{ lookup('file', './tmp/ntp_server_ip') }}"
