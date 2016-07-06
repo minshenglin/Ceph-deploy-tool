@@ -1,0 +1,5 @@
+- name: copy packages of ceph-common to node
+  copy: src=../packages/ceph-common/ dest=/tmp/packages/ceph-common/
+
+- name: install ntp
+  command: dpkg -i -R /tmp/packages/ceph-common/

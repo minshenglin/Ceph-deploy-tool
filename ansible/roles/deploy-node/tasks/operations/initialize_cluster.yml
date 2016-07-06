@@ -4,7 +4,7 @@
 - debug:
     msg: |
       {% set space = joiner(" ") %}
-      {% for mon in groups['mon'] -%}
+      {% for mon in groups['monitor'] -%}
         {{ space() }}{{ hostvars[mon].ansible_hostname }}
       {%- endfor %}
   register: mons

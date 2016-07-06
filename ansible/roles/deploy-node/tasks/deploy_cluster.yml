@@ -1,0 +1,12 @@
+- name: check the cluster exist or not
+  stat: path=/home/{{ username }}/ceph/ceph.conf
+  register: rt
+
+- include: ./operations/initialize_cluster.yml
+  when: rt.stat.exists == false
+
+- include: ./operations/deploy_osd.yml
+
+- include: ./operations/deploy_client.yml
+
+- include: ./operations/deploy_radosgw.yml

@@ -1,0 +1,6 @@
+- name: set up ntp client
+  template: src=roles/ceph-node/templates/ntp.conf.j2 dest=/etc/ntp.conf
+  when: ansible_host != ntp_server_ip
+
+- name: restart service of ntp
+  service: name=ntp state=restarted enabled=yes

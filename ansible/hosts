@@ -1,14 +1,21 @@
+[ceph-node:children]
+rados-node
+radosgw
+client
+
 [rados-node:children]
-mon
+monitor
 osd
 
-[mon]
+[monitor]
 
 [osd]
 
 [deploy]
 
 [ntp-server]
+
+[calamari-server]
 
 [radosgw]
 

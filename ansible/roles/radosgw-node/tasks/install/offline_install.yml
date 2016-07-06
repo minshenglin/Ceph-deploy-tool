@@ -1,0 +1,5 @@
+- name: copy packages of ceph-radosgw to node
+  copy: src=../packages/ceph-radosgw/ dest=/tmp/packages/ceph-radosgw/
+
+- name: install ntp
+  command: dpkg -i -R /tmp/packages/ceph-radosgw/

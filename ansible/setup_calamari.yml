@@ -1,0 +1,20 @@
+- hosts: calamari-server
+  sudo: yes
+  roles:
+    - calamari-server
+  tasks:
+    - include: roles/calamari-server/tasks/initialize.yml
+
+- hosts: rados-node
+  sudo: yes
+  roles:
+    - rados-node
+  tasks:
+    - include: roles/rados-node/tasks/setup_calamari.yml
+
+- hosts: calamari-server
+  sudo: yes
+  roles:
+    - calamari-server
+  tasks:
+    - include: roles/calamari-server/tasks/accept_salt_key.yml

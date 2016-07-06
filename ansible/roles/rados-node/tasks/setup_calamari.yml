@@ -1,0 +1,14 @@
+- name: Set up the config of salt-minion
+  template: src=roles/rados-node/templates/minion.j2 dest=/etc/salt/minion
+
+- name: Set default user of diamond
+  lineinfile: dest=/etc/default/diamond regexp='.*DIAMOND_USER\s+[\w_-]+' line="DIAMOND_USER=\"root\""
+
+- name: Set up the config of diamond/graphite
+  template: src=roles/rados-node/templates/diamond.conf.j2 dest=/etc/diamond/diamond.conf
+
+- name: Restart service of salt-minion
+  service: name=salt-minion state=restarted
+
+- name: Restart service of diamond
+  service: name=diamond state=restarted

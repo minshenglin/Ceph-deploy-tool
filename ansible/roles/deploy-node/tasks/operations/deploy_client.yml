@@ -1,0 +1,4 @@
+- name: Give the auth to client node
+  shell: cd /home/{{ username }}/ceph; ceph-deploy --overwrite-conf admin {{ hostvars[item].ansible_hostname }}
+  with_items:
+    - "{{ groups['client'] }}"

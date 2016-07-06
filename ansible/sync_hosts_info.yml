@@ -1,0 +1,6 @@
+- hosts: all
+  sudo: yes
+  roles:
+    - common
+  tasks:
+    - include: roles/common/tasks/setup_hosts.yml

@@ -1,0 +1,2 @@
+- name: install ceph-radosgw
+  apt: name=radosgw state=present
