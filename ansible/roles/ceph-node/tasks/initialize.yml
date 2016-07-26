@@ -1,5 +1,5 @@
 - name: create user
-  user: name={{ username }} password={{ password }} group={{ username }} createhome=yes update_password=on_create
+  user: name={{ username }} password={{ password }} createhome=yes update_password=on_create
 
 - name: set passwordless sudoer
   lineinfile: "dest=/etc/sudoers regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
