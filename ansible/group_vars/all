@@ -1,7 +1,9 @@
 install_mode: none  # online/offline/none
 
 username: ubuntu
-password: ubuntu
+password: ubR3Twh1k5PQE
+# Because of setting user password need to use encrypted string, so we need to gen password
+# by command: "python -c 'import crypt; print crypt.crypt("ubuntu", "ubuntuisobuildercool")'"
 
 # change IP if there already have ntp server
 ntp_server_ip: "{{ lookup('file', './tmp/ntp_server_ip') }}"
