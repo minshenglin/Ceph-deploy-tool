@@ -170,6 +170,8 @@ example
 [radosgw]
 [client]
 ```
+**The role of 'monitor' and 'deploy' can't be empty.**
+**The role of 'deploy', 'calamari-server' and 'ntp-server' can't be multiple.**
 
 6. Launch the command to run the playbook
 
