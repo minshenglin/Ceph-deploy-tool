@@ -1,0 +1,3 @@
+- name: Check the role that can't be empty
+  fail: msg="The role {{ item }} can\'t be empty."
+  when: ( groups[item] | length | int ) == 0

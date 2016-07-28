@@ -13,10 +13,10 @@ osd
 
 [deploy]
 
-[ntp-server]
-
-[calamari-server]
-
 [radosgw]
 
 [client]
+
+[ntp-server]
+
+[calamari-server]
