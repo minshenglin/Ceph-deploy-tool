@@ -4,5 +4,11 @@
 - name: Build up the cluster(Monitor)
   shell: cd /home/{{ system_user }}/ceph; echo "{{ lookup('file', './tmp/mons_hostname') }}" | sed -e 's/\n/ /g' | xargs ceph-deploy new
 
+- name: Copy setup file to remote server
+  template: src=roles/deploy-ndoe/templates/ceph.conf.j2 dest=/tmp/.ceph.conf
+
+- name: Set up ceph configuration
+  shell: cat /tmp/.ceph.conf >> /home/{{ system_user }}/ceph/ceph.conf
+
 - name: initialize the cluster
   shell: cd /home/{{ system_user }}/ceph; ceph-deploy mon create-initial

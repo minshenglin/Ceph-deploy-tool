@@ -1,0 +1,9 @@
+public network = {{ public_network }}
+cluster network = {{ cluster_network }}
+osd crush update on start = true
+osd pool default size = {{ osd_pool_default_size }}
+osd pool default min size = {{ osd_pool_default_min_size }}
+osd pool default pg num = {{ osd_pool_default_pg_num }}
+osd pool default pgp num = {{ osd_pool_default_pg_num }}
+osd crush chooseleaf type = {{ osd_crush_chooseleaf_type }}
+osd journal size = {{ osd_journal_size }}
