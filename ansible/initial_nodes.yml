@@ -1,33 +1,25 @@
 - hosts: deploy
-  sudo: yes
+  become: yes
   roles:
     - deploy-node
 
 - hosts: ceph-node
-  sudo: yes
-  roles:
-    - ceph-node
+  become: yes
   tasks:
     - include: roles/ceph-node/tasks/initialize.yml
     - include: roles/ceph-node/tasks/setup_ntp.yml
 
 - hosts: rados-node
-  sudo: yes
-  roles:
-    - rados-node
+  become: yes
   tasks:
     - include: roles/rados-node/tasks/install.yml
 
 - hosts: client
-  sudo: yes
-  roles:
-    - client-node
+  become: yes
   tasks:
     - include: roles/client-node/tasks/install.yml
 
 - hosts: radosgw
-  sudo: yes
-  roles:
-    - radosgw-node
+  become: yes
   tasks:
     - include: roles/radosgw-node/tasks/install.yml

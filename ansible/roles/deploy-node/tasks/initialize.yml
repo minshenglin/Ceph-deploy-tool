@@ -1,10 +1,29 @@
 - name: create user
-  user: name={{ username }} password={{ password }} createhome=yes update_password=on_create generate_ssh_key=yes
+  user: name={{ user }} password={{ password_encrypted }} group=sudo createhome=yes update_password=on_create generate_ssh_key=yes
+
+- name: Check ssh key exist or not
+  stat: path=/home/{{ system_user }}/.ssh/id_rsa.public
+  register: ssh_key_check
+
+- name: Create ssh key of system user if not exists
+  user: name={{ system_user }} generate_ssh_key=yes
+  when: ssh_key_check.stat.exists == False
 
 - name: keep the ssh key of user
-  shell: cat /home/{{username}}/.ssh/id_rsa.pub
+  shell: cat /home/{{system_user}}/.ssh/id_rsa.pub
   register: deploy_user_ssh_key
   ignore_errors: True
 
 - name: save the ssh key of user
   local_action: copy content={{ deploy_user_ssh_key.stdout }} dest=./tmp/deploy_user_ssh_key
+
+- debug:
+    msg: |
+      {% set space = joiner(" ") %}
+      {% for mon in groups['monitor'] -%}
+        {{ space() }}{{ hostvars[mon].ansible_hostname }}
+      {%- endfor %}
+  register: mons
+
+- name: save the string of monitors' hostname
+  local_action: copy content={{ mons.msg }} dest=./tmp/mons_hostname

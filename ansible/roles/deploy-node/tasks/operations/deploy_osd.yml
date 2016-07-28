@@ -9,7 +9,7 @@
     - "{{ drives_list }}"
 
 - name: deploy OSD
-  shell: cd /home/{{ username }}/ceph; {{ item.1 }}
+  shell: cd /home/{{ system_user }}/ceph; {{ item.1 }}
   with_subelements:
     - "{{ command_list.results }}"
     - meta.result
