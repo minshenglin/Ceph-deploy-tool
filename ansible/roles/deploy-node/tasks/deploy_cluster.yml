@@ -1,5 +1,5 @@
 - name: check the cluster exist or not
-  stat: path=/home/{{ username }}/ceph/ceph.conf
+  stat: path=/home/{{ user }}/ceph/ceph.conf
   register: rt
 
 - include: ./operations/initialize_cluster.yml

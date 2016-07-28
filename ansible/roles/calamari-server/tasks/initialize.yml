@@ -1,8 +1,8 @@
 - name: Copy the script to node
-  copy: src=roles/calamari-server/files/calamari_initial.expect dest=/home/{{ username }}/.calamari_initial.expect
+  copy: src=roles/calamari-server/files/calamari_initial.expect dest=/tmp/.calamari_initial.expect
 
 - name: Initialize calamari
-  shell: expect /home/{{ username }}/.calamari_initial.expect
+  shell: expect /tmp/.calamari_initial.expect
 
-- name: Enable supervisor
+- name: Enable supervisor and start
   service: name=supervisor enabled=yes state=started

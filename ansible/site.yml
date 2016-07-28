@@ -1,5 +1,5 @@
 ---
-  # initialize (setup config and install package)
+  ## initialize (setup config and install package)
   # need sudo privilege
   - include: sync_hosts_info.yml
   - include: setup_ntp_server.yml

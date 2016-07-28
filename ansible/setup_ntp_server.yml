@@ -1,4 +1,4 @@
 - hosts: ntp-server
-  sudo: yes
+  become: yes
   roles:
     - ntp-server

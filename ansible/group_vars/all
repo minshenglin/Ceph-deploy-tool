@@ -1,9 +1,14 @@
 install_mode: none  # online/offline/none
 
-username: ubuntu
-password: ubR3Twh1k5PQE
+system_user: ubuntu
+system_user_password: ubuntu
+
+user: cephtest
+password: cephtest
+password_encrypted: isDXdHnlEi7PU
+# This user, which is sudoer, is for client to manage Ceph cluster.
 # Because of setting user password need to use encrypted string, so we need to gen password
-# by command: "python -c 'import crypt; print crypt.crypt("ubuntu", "ubuntuisobuildercool")'"
+# by command: "python -c 'import crypt; print crypt.crypt("cephtest", "isobuildercool")'"
 
 # change IP if there already have ntp server
 ntp_server_ip: "{{ lookup('file', './tmp/ntp_server_ip') }}"

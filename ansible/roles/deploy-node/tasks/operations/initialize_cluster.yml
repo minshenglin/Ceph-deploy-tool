@@ -1,16 +1,8 @@
 - name: create the deploy folder
-  file: path=/home/{{ username }}/ceph state=directory
-
-- debug:
-    msg: |
-      {% set space = joiner(" ") %}
-      {% for mon in groups['monitor'] -%}
-        {{ space() }}{{ hostvars[mon].ansible_hostname }}
-      {%- endfor %}
-  register: mons
+  file: path=/home/{{ system_user }}/ceph state=directory
 
 - name: Build up the cluster(Monitor)
-  shell: cd /home/{{ username }}/ceph; echo "{{ mons['msg'] }}" | sed -e 's/\n/ /g' | xargs ceph-deploy new
+  shell: cd /home/{{ system_user }}/ceph; echo "{{ lookup('file', './tmp/mons_hostname') }}" | sed -e 's/\n/ /g' | xargs ceph-deploy new
 
 - name: initialize the cluster
-  shell: cd /home/{{ username }}/ceph; ceph-deploy mon create-initial
+  shell: cd /home/{{ system_user }}/ceph; ceph-deploy mon create-initial
