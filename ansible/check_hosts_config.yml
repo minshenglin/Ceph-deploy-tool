@@ -1,0 +1,18 @@
+# Check certain roles should be set, can't empty
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: roles/common/tasks/check_necessary_host.yml
+      with_items:
+        - 'deploy'
+        - 'monitor'
+
+# Check certain roles can't be multiple
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: roles/common/tasks/check_no_multiple_host.yml
+      with_items:
+        - 'deploy'
+        - 'calamari-server'
+        - 'ntp-server'

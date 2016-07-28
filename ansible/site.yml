@@ -1,4 +1,6 @@
 ---
+  - include: check_hosts_config.yml
+
   ## initialize (setup config and install package)
   # need sudo privilege
   - include: sync_hosts_info.yml
