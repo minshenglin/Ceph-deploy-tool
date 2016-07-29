@@ -1,2 +1,5 @@
 - name: Accept all salt key
   shell: salt-key -A -y
+
+- name: Restart service of apache
+  service: name=apache2 state=restarted
