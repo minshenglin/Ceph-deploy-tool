@@ -1,6 +1,9 @@
 - name: Set up the config of salt-minion
   template: src=roles/rados-node/templates/minion.j2 dest=/etc/salt/minion
 
+- name: Refresh minion ID
+  shell: hostname > /etc/salt/minion_id
+
 - name: Set default user of diamond
   lineinfile: dest=/etc/default/diamond regexp='.*DIAMOND_USER\s+[\w_-]+' line="DIAMOND_USER=\"root\""
 
