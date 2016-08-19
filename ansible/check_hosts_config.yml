@@ -1,3 +1,4 @@
+## Check config of hosts file
 # Check certain roles should be set, can't empty
 - hosts: localhost
   connection: local
@@ -16,3 +17,10 @@
         - 'deploy'
         - 'calamari-server'
         - 'ntp-server'
+
+## Check config of deployment setting
+# Check the user name can't be 'ceph'. Because 'ceph' is the default user for Ceph proccess
+- hosts: localhost
+  connecntion: local
+  tasks:
+    - include: roles/common/tasks/check_username.yml
