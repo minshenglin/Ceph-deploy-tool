@@ -21,6 +21,6 @@
 ## Check config of deployment setting
 # Check the user name can't be 'ceph'. Because 'ceph' is the default user for Ceph proccess
 - hosts: localhost
-  connecntion: local
+  connection: local
   tasks:
     - include: roles/common/tasks/check_username.yml
