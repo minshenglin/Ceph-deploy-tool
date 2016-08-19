@@ -18,6 +18,12 @@
         - 'calamari-server'
         - 'ntp-server'
 
+# Check the number of monitor
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: roles/common/tasks/check_monitor_num.yml
+
 ## Check config of deployment setting
 # Check the user name can't be 'ceph'. Because 'ceph' is the default user for Ceph proccess
 - hosts: localhost

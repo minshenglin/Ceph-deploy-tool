@@ -1,0 +1,3 @@
+- name: Check the number of monitor should be odd
+  fail: msg="The number of monitor should be odd."
+  when: ( groups['monitor'] | length | int ) % 2 == 0
