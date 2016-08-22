@@ -31,3 +31,4 @@
   tasks:
     - include: roles/common/tasks/check_username.yml
     - include: roles/common/tasks/check_pool_size.yml
+    - include: roles/common/tasks/check_ip_segment_format.yml
