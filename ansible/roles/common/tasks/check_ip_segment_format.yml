@@ -5,8 +5,8 @@
 
 - name: Check the ip segment format of public network
   fail: msg="The format of public network is wrong!"
-  when: not public_network | match(pattern)
+  when: public_network is not none and not public_network | match(pattern)
 
 - name: Check the ip segment format of cluster network
   fail: msg="The format of cluster network is wrong!"
-  when: not cluster_network | match(pattern)
+  when: cluster_network is not none and not cluster_network | match(pattern)
