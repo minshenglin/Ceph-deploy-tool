@@ -6,6 +6,9 @@ osd_pool_default_min_size: 2
 osd_pool_default_pg_num: 8
 osd_journal_size: 2048 #MB
 osd_crush_chooseleaf_type: 1 #host
+mon_osd_full_ratio: .95
+mon_osd_nearfull_ratio: .85
+osd_backfill_full_ratio: .85
 
 num_of_osd_on_journal: 2
 
