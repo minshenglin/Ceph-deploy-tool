@@ -2,6 +2,7 @@
 rados-node
 radosgw
 client
+calamari-server
 
 [rados-node:children]
 monitor
