@@ -1,3 +1,4 @@
+[global]
 public network = {{ public_network }}
 cluster network = {{ cluster_network }}
 osd crush update on start = true
@@ -7,3 +8,6 @@ osd pool default pg num = {{ osd_pool_default_pg_num }}
 osd pool default pgp num = {{ osd_pool_default_pg_num }}
 osd crush chooseleaf type = {{ osd_crush_chooseleaf_type }}
 osd journal size = {{ osd_journal_size }}
+mon osd full ratio = {{ mon_osd_full_ratio }}
+mon osd nearfull ratio = {{ mon_osd_nearfull_ratio}}
+osd backfill full ratio = {{ osd_backfill_full_ratio }}

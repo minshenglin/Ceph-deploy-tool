@@ -1,0 +1,9 @@
+- include_vars: group_vars/deploy
+
+- name: Check the nearfull ratio should be less than full ratio
+  fail: msg="The osd nearfull ratio should less than osd full ratio."
+  when: mon_osd_nearfull_ratio > mon_osd_full_ratio
+
+- name: Check the backfill full ratio should be less than full ratio
+  fail: msg="The osd backfill full ratio should be less than osd full ratio."
+  when: osd_backfill_full_ratio > mon_osd_full_ratio
