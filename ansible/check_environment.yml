@@ -29,7 +29,4 @@
 - hosts: localhost
   connection: local
   tasks:
-    - include: roles/common/tasks/check_username.yml
-    - include: roles/common/tasks/check_pool_size.yml
-    - include: roles/common/tasks/check_ip_segment_format.yml
-    - include: roles/common/tasks/check_osd_config.yml
+    - include: roles/common/tasks/check_variable_in_config.yml

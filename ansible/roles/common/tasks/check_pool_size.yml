@@ -1,5 +1,0 @@
-- include_vars: group_vars/deploy
-
-- name: Check the max size of pool must bigger than or equal min size
-  fail: msg="The max size must bigger than or equal to min size."
-  when: osd_pool_default_size < osd_pool_default_min_size

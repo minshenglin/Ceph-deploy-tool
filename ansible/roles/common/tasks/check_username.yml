@@ -1,3 +1,0 @@
-- name: Check the user name which can't be 'ceph'
-  fail: msg="The name of user can't be 'ceph'. That is the default user for ceph proccess"
-  when: user == "ceph"
