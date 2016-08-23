@@ -1,0 +1,4 @@
+- name: Get ntp servers ip
+  lineinfile: dest=tmp/ntp_server_ip insertafter=EOF line="{{ hostvars[item].inventory_hostname }}"
+  with_items:
+    - "{{ groups['ntp-server'] }}"

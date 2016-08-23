@@ -16,7 +16,6 @@
       with_items:
         - 'deploy'
         - 'calamari-server'
-        - 'ntp-server'
 
 # Check the number of monitor
 - hosts: localhost
