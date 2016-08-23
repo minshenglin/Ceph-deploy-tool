@@ -2,3 +2,8 @@
   become: yes
   roles:
     - ntp-server
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: roles/ntp-server/tasks/get_servers_ip.yml

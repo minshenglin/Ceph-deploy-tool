@@ -3,6 +3,3 @@
 
 - name: restart service of ntp
   service: name=ntp state=restarted enabled=yes
-
-- name: save IP of ntp server
-  local_action: copy content={{ groups['ntp-server'][0] }} dest=./tmp/ntp_server_ip

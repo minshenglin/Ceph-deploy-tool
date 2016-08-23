@@ -4,13 +4,11 @@ restrict -6 default kod nomodify notrap nopeer noquery
 
 restrict 127.0.0.1
 restrict -6 ::1
-restrict {{ groups['ntp-server'][0] }} mask {{ ntp_netmask }} nomodify
+restrict {{ inventory_hostname }} mask {{ ntp_netmask }} nomodify
 
-server time.stdtime.gov.tw burst iburst
-server tock.stdtime.gov.tw burst iburst
-server 0.pool.ntp.org burst iburst
-server 1.pool.ntp.org burst iburst
-server 2.pool.ntp.org burst iburst
+{% for server in top_ntp_servers %}
+server {{ server }} burst iburst
+{% endfor %}
 
 driftfile /var/lib/ntp/drift
 
