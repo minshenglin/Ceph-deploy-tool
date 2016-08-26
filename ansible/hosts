@@ -12,6 +12,8 @@ osd
 
 [osd]
 
+[mds]
+
 [deploy]
 
 [radosgw]
