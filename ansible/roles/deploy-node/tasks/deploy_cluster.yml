@@ -7,6 +7,8 @@
 
 - include: ./operations/deploy_osd.yml
 
+- include: ./operations/deploy_mds.yml
+
 - include: ./operations/deploy_client.yml
 
 - include: ./operations/deploy_radosgw.yml
