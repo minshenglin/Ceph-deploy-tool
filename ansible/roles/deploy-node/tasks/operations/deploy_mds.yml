@@ -1,4 +1,4 @@
-- name: Deploy radosgw
+- name: Deploy mds
   shell: cd /home/{{ system_user }}/ceph; ceph-deploy --overwrite-conf mds create {{ hostvars[item].ansible_hostname }}
   with_items:
     - "{{ groups['mds'] }}"
