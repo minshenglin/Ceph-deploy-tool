@@ -11,4 +11,6 @@ restrict -6 default kod notrap nomodify nopeer noquery
 
 restrict 127.0.0.1
 restrict ::1
-server {{ ntp_server_ip }} burst iburst
+{% for server in local_ntp_servers %}
+server {{ server }} burst iburst
+{% endfor %}

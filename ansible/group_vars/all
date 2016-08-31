@@ -4,20 +4,25 @@ system_user: ubuntu
 system_user_password: ubuntu
 
 # This user, which is sudoer, is for client to manage Ceph cluster.
-# Because of setting user password need to use encrypted string, so we need to gen password
-# by command: "python -c 'import crypt; print crypt.crypt("cephtest", "isobuildercool")'"
+# Because of setting user password need to use encrypted string, so we need to
+# gen password by command:
+# "python -c 'import crypt; print crypt.crypt("cephtest", "isobuildercool")'"
 user: cephtest
 password: cephtest
 password_encrypted: isDXdHnlEi7PU
 
 
 ## NTP server setting
-# Change IP if there already have ntp server
-# The top ntp servers for local ntp servers
+# The top ntp servers for "new" local ntp servers
+# This variable is only aplly on local ntp servers
 top_ntp_servers: [
   'time.stdtime.gov.tw',
   'tock.stdtime.gov.tw',
 ]
 
-# Thc local ntp servers
-ntp_server_ip: "{{ lookup('file', './tmp/ntp_server_ip') }}"
+# Thc local ntp servers ip for all ceph nodes
+# Add servers for this variable if there have existed ntp servers
+# in your environment
+local_ntp_servers: [
+  '',
+]
