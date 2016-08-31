@@ -1,6 +1,10 @@
+- set_fact: local_ntp_servers="{{ local_ntp_servers}} + [ '{{ hostvars[item].inventory_hostname }}' ]"
+  with_items:
+    - "{{ groups['ntp-server'] }}"
+
 - name: set up ntp client
   template: src=roles/ceph-node/templates/ntp.conf.j2 dest=/etc/ntp.conf
-  when: ansible_host != ntp_server_ip
+  when: inventory_hostname not in local_ntp_servers
 
 - name: restart service of ntp
   service: name=ntp state=restarted enabled=yes
