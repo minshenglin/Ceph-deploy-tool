@@ -1,6 +1,15 @@
 - name: Copy the script to node
   copy: src=roles/calamari-server/files/calamari_initial.expect dest=/tmp/.calamari_initial.expect
 
+- name: Enable postgres and start
+  service: name=postgresql enabled=yes state=started
+
+- name: Enable apache2 and start
+  service: name=apache2 enabled=yes state=started
+
+- name: Enable salt-master and start
+  service: name=salt-master enabled=yes state=started
+
 - name: Initialize calamari
   shell: expect /tmp/.calamari_initial.expect
 

@@ -3,6 +3,7 @@ rados-node
 radosgw
 client
 calamari-server
+ntp-server
 
 [rados-node:children]
 monitor
