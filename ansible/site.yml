@@ -10,3 +10,4 @@
   # Start deploying Ceph cluster
   - include: deploy_cluster.yml
   - include: setup_calamari.yml
+  - include: setup_cluster.yml

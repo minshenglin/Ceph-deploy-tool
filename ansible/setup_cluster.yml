@@ -1,0 +1,19 @@
+- hosts: rados-node
+  become: yes
+  tasks:
+    - include: roles/rados-node/tasks/setup_firewall.yml
+
+- hosts: radosgw
+  become: yes
+  tasks:
+    - include: roles/radosgw-node/tasks/setup_firewall.yml
+
+- hosts: ntp-server
+  become: yes
+  tasks:
+    - include: roles/ntp-server/tasks/setup_firewall.yml
+
+- hosts: calamari-server
+  become: yes
+  tasks:
+    - include: roles/calamari-server/tasks/setup_firewall.yml
