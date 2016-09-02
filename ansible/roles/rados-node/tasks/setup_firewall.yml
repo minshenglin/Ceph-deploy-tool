@@ -1,0 +1,14 @@
+- name: Set up Monitor firewall
+  ufw: rule=allow state=enabled port=6789
+  when: inventory_hostname in groups['monitor']
+
+- name: Set up OSD firewall
+  ufw: rule=allow state=enabled port=6800:7100 proto=tcp
+  when: inventory_hostname in groups['osd']
+
+- name: Set up MDS firewall
+  ufw: rule=allow state=enabled port=6800
+  when: inventory_hostname in groups['mds']
+
+- name: Set up ssh proto
+  ufw: rule=allow port=22

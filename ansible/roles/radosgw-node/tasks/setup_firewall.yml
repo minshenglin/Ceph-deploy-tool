@@ -1,0 +1,5 @@
+- name: Set up RadosGW firewall
+  ufw: rule=allow state=enabled port=7480
+
+- name: Set up ssh proto
+  ufw: rule=allow port=22

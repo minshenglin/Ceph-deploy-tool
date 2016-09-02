@@ -1,0 +1,5 @@
+- name: Set up NTP server firewall
+  ufw: rule=allow state=enabled port=123
+
+- name: Set up ssh proto
+  ufw: rule=allow port=22

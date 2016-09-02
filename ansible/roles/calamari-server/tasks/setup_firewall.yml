@@ -1,0 +1,11 @@
+- name: Set up Calamari server firewall
+  ufw: rule=allow state=enabled port={{ item }}
+  with_items:
+    - "2003"
+    - "2004"
+    - "4505"
+    - "4506"
+    - "80"
+
+- name: Set up ssh proto
+  ufw: rule=allow port=22
